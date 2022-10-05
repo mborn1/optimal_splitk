@@ -1,0 +1,680 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>doe_gensplit.doe &#8212; doe_gensplit 0.0.1 documentation</title>
+  <script>
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+
+  
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/doe_gensplit/doe';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="None">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fas fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../../index.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <p class="title logo__title">doe_gensplit 0.0.1 documentation</p>
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                <li class="nav-item">
+                    <a class="nav-link" href="../../design.html">
+                        Design
+                    </a>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../../api.html">
+                        API
+                    </a>
+                </li>
+                
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      <div class="navbar-end-item navbar-end__search-button-container">
+        
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <span class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  <div class="search-button-container--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+  </div>
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fas fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                <li class="nav-item">
+                    <a class="nav-link" href="../../design.html">
+                        Design
+                    </a>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../../api.html">
+                        API
+                    </a>
+                </li>
+                
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <span class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+      </div>
+      <main class="bd-main">
+        
+        
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
+            </div>
+            
+            
+            <article class="bd-article" role="main">
+              
+  <h1>Source code for doe_gensplit.doe</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numba</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">.encode</span> <span class="kn">import</span> <span class="n">encode_model</span><span class="p">,</span> <span class="n">encode_design</span><span class="p">,</span> <span class="n">decode_design</span>
+<span class="kn">from</span> <span class="nn">.init</span> <span class="kn">import</span> <span class="n">initialize_single</span>
+<span class="kn">from</span> <span class="nn">.optim.doptim</span> <span class="kn">import</span> <span class="n">Doptim</span>
+
+<span class="c1">##################################################################                </span>
+<span class="c1">##  UPDATE FORMULAS</span>
+<span class="c1">##################################################################</span>
+
+<div class="viewcode-block" id="x2fx"><a class="viewcode-back" href="../../generated/doe_gensplit.doe.x2fx.html#doe_gensplit.doe.x2fx">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">x2fx</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create the model matrix from the design matrix and model specification.</span>
+<span class="sd">    This specification is the same as MATLAB&#39;s.</span>
+<span class="sd">    A model is specified as a matrix with each term being a row. The elements</span>
+<span class="sd">    in each row specify the power of the factor.</span>
+<span class="sd">    E.g.</span>
+
+<span class="sd">    * The intercept is [0, 0, ..., 0]</span>
+<span class="sd">    * A main factor is [1, 0, ..., 0]</span>
+<span class="sd">    * A two-factor interaction is [1, 1, 0, ..., 0]</span>
+<span class="sd">    * A quadratic term is [2, 0, ..., 0]</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        This function is Numba accelerated</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Y : np.array</span>
+<span class="sd">        The design matrix. It should be 2D</span>
+<span class="sd">    model : np.array</span>
+<span class="sd">        The model, specified as in MATLAB.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    X : np.array</span>
+<span class="sd">        The model matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="o">*</span><span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">model</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">term</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="n">term</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">term</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">p</span> <span class="o">*=</span> <span class="n">Y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">p</span> <span class="o">*=</span> <span class="n">Y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">**</span> <span class="n">term</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">X</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span>
+    <span class="k">return</span> <span class="n">X</span></div>
+
+<span class="c1">##################################################################</span>
+<span class="c1">##  OPTIMIZATION</span>
+<span class="c1">##################################################################</span>
+
+<div class="viewcode-block" id="generate_coordinates"><a class="viewcode-back" href="../../generated/doe_gensplit.doe.generate_coordinates.html#doe_gensplit.doe.generate_coordinates">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">generate_coordinates</span><span class="p">(</span><span class="n">cat_lvl</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate possible coordinates depending on the amount of</span>
+<span class="sd">    categorical levels. 1 is considered continuous, higher means</span>
+<span class="sd">    categorical with n levels.</span>
+
+<span class="sd">    Currently, the design only generates [-1, 0, 1] for continuous variables</span>
+<span class="sd">    and all possible effect encoded values for categorical variables.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        This function is Numba accelerated</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cat_lvl : int</span>
+<span class="sd">        The amount of categorical levels, with 1 indicating a</span>
+<span class="sd">        continuous factor</span>
+<span class="sd">    default : np.array(2d)</span>
+<span class="sd">        The coordinates to be outputted instead of generating new</span>
+<span class="sd">        possible coordinates</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    coords : np.array(2d)</span>
+<span class="sd">        The array of possible coordinates (each item</span>
+<span class="sd">        along axis 0 is a corodinate).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">default</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Check categorical or continuous column</span>
+        <span class="k">if</span> <span class="n">cat_lvl</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">possible_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n_cat_levels</span> <span class="o">=</span> <span class="n">cat_lvl</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="n">possible_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n_cat_levels</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_cat_levels</span><span class="p">))))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Store default coordinates</span>
+        <span class="n">possible_coords</span> <span class="o">=</span> <span class="n">default</span>
+
+    <span class="k">return</span> <span class="n">possible_coords</span></div>
+
+<div class="viewcode-block" id="optimize"><a class="viewcode-back" href="../../generated/doe_gensplit.doe.optimize.html#doe_gensplit.doe.optimize">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">optimize</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">plot_sizes</span><span class="p">,</span> <span class="n">factors</span><span class="p">,</span>
+             <span class="n">optim</span><span class="p">,</span> <span class="n">prestate</span><span class="p">,</span> <span class="n">max_it</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">col_start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">default_coords</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Optimize a model iteratively using the coordinate exchange algorithm.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        This function is Numba accelerated</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Y : np.array    </span>
+<span class="sd">        The initial design matrix (usually randomized) to optimize</span>
+<span class="sd">    model : np.array    </span>
+<span class="sd">        The regression model to optimize the design for. Encoded</span>
+<span class="sd">        as in MATLAB.</span>
+<span class="sd">    plot_sizes : np.array</span>
+<span class="sd">        The size of each plot in the split-plot constraints. The first</span>
+<span class="sd">        element are the easy-to-vary effects.</span>
+<span class="sd">    factors : np.array</span>
+<span class="sd">        Information on the columns of the design matrix. It is encoded</span>
+<span class="sd">        as a 2d array with the first element being the split-plot-level,</span>
+<span class="sd">        and the second element being the type (continuous = 1, categorical &gt; 1).</span>
+<span class="sd">    optim : :py:class:`doe_gensplit.optimizers.Optim`</span>
+<span class="sd">        A optimization object specifying the different functions related</span>
+<span class="sd">        to an optimization criterion (like D-optimality by default)</span>
+<span class="sd">    prestate : `Prestate`</span>
+<span class="sd">        The pre-computed state return from the optim.prestate function. This allows</span>
+<span class="sd">        some caching related to the specific metric.</span>
+<span class="sd">    max_it : int</span>
+<span class="sd">        The maximum amount of iterations for the algorithm, if at one iteration,</span>
+<span class="sd">        no update is performed, the algorithm is ended earlier.</span>
+<span class="sd">    col_start : np.array(1d)</span>
+<span class="sd">        Contains the starting column of each effect.</span>
+<span class="sd">        Possibly pre-computed start of each column, this is necessary</span>
+<span class="sd">        when working with categorical factors or mixture components.</span>
+<span class="sd">    default_coords : list(np.array(2d))</span>
+<span class="sd">        Contains possible default coordinates for all the different</span>
+<span class="sd">        factors. If None, a default set will be generated by </span>
+<span class="sd">        :py:func:`generate_coordinates` </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Y : np.array(2d)</span>
+<span class="sd">        The final design matrix</span>
+<span class="sd">    metric : np.array(1d)</span>
+<span class="sd">        The final metric of the design</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">##################################################</span>
+    <span class="c1"># INITIALIZATION</span>
+    <span class="c1">##################################################</span>
+    <span class="c1"># Compute model matrix</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">x2fx</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+
+    <span class="c1"># State initialization</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">prestate</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+
+    <span class="c1"># Compute betas</span>
+    <span class="n">alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="n">plot_sizes</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">betas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">]),</span> <span class="n">plot_sizes</span><span class="p">)))</span>
+
+    <span class="c1"># Start column of each factor</span>
+    <span class="k">if</span> <span class="n">col_start</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">col_start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]),</span> 
+                                    <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">factors</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span> 
+                                                       <span class="n">factors</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> 
+                                                       <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">factors</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)))))</span>
+
+    <span class="c1"># Compute possible coordinates for each level</span>
+    <span class="k">if</span> <span class="n">default_coords</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">_possible_coords</span> <span class="o">=</span> <span class="p">[</span><span class="n">generate_coordinates</span><span class="p">(</span><span class="n">cat_lvl</span><span class="p">,</span> <span class="n">dcoord</span><span class="p">)</span> <span class="k">for</span> <span class="n">dcoord</span><span class="p">,</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">cat_lvl</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">default_coords</span><span class="p">,</span> <span class="n">factors</span><span class="p">)]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">_possible_coords</span> <span class="o">=</span> <span class="p">[</span><span class="n">generate_coordinates</span><span class="p">(</span><span class="n">cat_lvl</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">cat_lvl</span> <span class="ow">in</span> <span class="n">factors</span><span class="p">]</span>
+
+    <span class="c1"># Make sure we are not stuck in finite loop</span>
+    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_it</span><span class="p">):</span>
+        <span class="c1"># Start with updated false</span>
+        <span class="n">updated</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1">##################################################</span>
+        <span class="c1"># FACTOR SELECTION</span>
+        <span class="c1">##################################################</span>
+
+        <span class="c1"># Loop over all factors</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">factor</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">factors</span><span class="p">):</span>
+            <span class="c1"># Level in split-plot</span>
+            <span class="n">level</span><span class="p">,</span> <span class="n">cat_lvl</span> <span class="o">=</span> <span class="n">factor</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">factor</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">jmp</span> <span class="o">=</span> <span class="n">betas</span><span class="p">[</span><span class="n">level</span><span class="p">]</span>
+            <span class="n">col</span> <span class="o">=</span> <span class="n">col_start</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+            <span class="c1"># Loop over all run-groups</span>
+            <span class="k">for</span> <span class="n">grp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">alphas</span><span class="p">[</span><span class="n">level</span><span class="p">]):</span>
+
+                <span class="c1">##################################################</span>
+                <span class="c1"># COORDINATE GENERATION</span>
+                <span class="c1">##################################################</span>
+                <span class="c1"># Generate coordinates</span>
+                <span class="n">possible_coords</span> <span class="o">=</span> <span class="n">_possible_coords</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">cols</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="n">possible_coords</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">runs</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">grp</span><span class="o">*</span><span class="n">jmp</span><span class="p">,</span> <span class="p">(</span><span class="n">grp</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">jmp</span><span class="p">)</span>
+
+                <span class="c1"># Extract current coordinate (as best)</span>
+                <span class="n">init_coord</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">Y</span><span class="p">[</span><span class="n">runs</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">cols</span><span class="p">])</span>
+                <span class="n">best_coord</span> <span class="o">=</span> <span class="n">init_coord</span>
+
+                <span class="c1"># Loop over possible new coordinates</span>
+                <span class="k">for</span> <span class="n">new_coord</span> <span class="ow">in</span> <span class="n">possible_coords</span><span class="p">:</span>
+                    <span class="c1"># Set new coordinate</span>
+                    <span class="n">Y</span><span class="p">[</span><span class="n">runs</span><span class="p">,</span> <span class="n">cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_coord</span>
+
+                    <span class="c1"># Validate whether to check the coordinate</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">new_coord</span> <span class="o">==</span> <span class="n">init_coord</span><span class="p">):</span>
+                        <span class="c1">##################################################</span>
+                        <span class="c1"># COMPUTE UPDATE</span>
+                        <span class="c1">##################################################</span>
+                        <span class="c1"># Compute the model matrix of the update</span>
+                        <span class="n">Xi_star</span> <span class="o">=</span> <span class="n">x2fx</span><span class="p">(</span><span class="n">Y</span><span class="p">[</span><span class="n">runs</span><span class="p">],</span> <span class="n">model</span><span class="p">)</span>
+
+                        <span class="c1"># Compute the update</span>
+                        <span class="n">accept</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Xi_star</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">grp</span><span class="p">)</span>
+                        
+                        <span class="c1">##################################################</span>
+                        <span class="c1"># ACCEPT UPDATE</span>
+                        <span class="c1">##################################################</span>
+                        <span class="c1"># New best design</span>
+                        <span class="k">if</span> <span class="n">accept</span><span class="p">:</span>
+                            <span class="c1"># Store the best coordinates</span>
+                            <span class="n">best_coord</span> <span class="o">=</span> <span class="n">new_coord</span>
+                            <span class="c1"># Update X (model matrix)</span>
+                            <span class="n">X</span><span class="p">[</span><span class="n">runs</span><span class="p">]</span> <span class="o">=</span> <span class="n">Xi_star</span>
+                            <span class="c1"># Set update</span>
+                            <span class="n">updated</span> <span class="o">=</span> <span class="kc">True</span>
+                
+                <span class="c1"># Set the best coordinates</span>
+                <span class="n">Y</span><span class="p">[</span><span class="n">runs</span><span class="p">,</span> <span class="n">cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">best_coord</span>
+        
+        <span class="c1"># Stop if nothing updated for an entire iteration</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">updated</span><span class="p">:</span>
+            <span class="k">break</span>
+
+    <span class="c1"># Compute the metric</span>
+    <span class="n">metric</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">metric</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Y</span><span class="p">,</span> <span class="n">metric</span></div>
+
+<span class="c1">##################################################################</span>
+<span class="c1">##  DOE WRAPPER</span>
+<span class="c1">##################################################################</span>
+
+<div class="viewcode-block" id="doe"><a class="viewcode-back" href="../../generated/doe_gensplit.doe.doe.html#doe_gensplit.doe.doe">[docs]</a><span class="k">def</span> <span class="nf">doe</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">plot_sizes</span><span class="p">,</span> <span class="n">factors</span><span class="p">,</span> <span class="n">n_tries</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">max_it</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
+        <span class="n">it_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">optim</span><span class="o">=</span><span class="n">Doptim</span><span class="p">,</span> <span class="n">default_coords</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ratios</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a D-optimal design of experiments (DOE) using the coordinate exchange algorithm.</span>
+<span class="sd">    This is the core function of the library.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    model : np.array    </span>
+<span class="sd">        The regression model to optimize the design for. Encoded</span>
+<span class="sd">        as in MATLAB.</span>
+<span class="sd">    plot_sizes : np.array</span>
+<span class="sd">        The size of each plot in the split-plot constraints. The first</span>
+<span class="sd">        element are the easy-to-vary effects.</span>
+<span class="sd">    factors : np.array</span>
+<span class="sd">        Information on the columns of the design matrix. It is encoded</span>
+<span class="sd">        as a 2d array with the first element being the split-plot-level,</span>
+<span class="sd">        and the second element being the type (continuous = 1, categorical &gt; 1).</span>
+<span class="sd">    optim : :py:class:`doe_gensplit.optimizers.Optim`</span>
+<span class="sd">        A optimization object specifying the different functions related</span>
+<span class="sd">        to an optimization criterion (like D-optimality by default)</span>
+<span class="sd">    n_tries : int</span>
+<span class="sd">        The amount of random starts of the coordinate exchange algorithm</span>
+<span class="sd">    max_it : int</span>
+<span class="sd">        The maximum amount of full iterations per optimization.</span>
+<span class="sd">    it_callback : function(int)</span>
+<span class="sd">        Called each iteration (for external updating progress bars)</span>
+<span class="sd">    optim : :py:class:`doe_gensplit.optimizers.Optim`</span>
+<span class="sd">        A optimization object specifying the different functions related</span>
+<span class="sd">        to an optimization criterion (like D-optimality by default)</span>
+<span class="sd">    default_coords : list(np.array(2d))</span>
+<span class="sd">        Contains possible default coordinates for all the different</span>
+<span class="sd">        factors. If None, a default set will be generated by </span>
+<span class="sd">        :py:func:`generate_coordinates` </span>
+<span class="sd">    ratios : np.array(1d)</span>
+<span class="sd">        The ratios for each split-level. The size should be the same as</span>
+<span class="sd">        or 1 less than the amount of plot sizes. If the same, the first</span>
+<span class="sd">        element should be 1 (to indicate a 1 ratio for epsilon).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Y : np.array</span>
+<span class="sd">        The best found design</span>
+<span class="sd">    determinants: np.array</span>
+<span class="sd">        An array of the determinants of :math:`|X^T V^{-1} X|`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">##################################################</span>
+    <span class="c1"># INITIALIZATION</span>
+    <span class="c1">##################################################</span>
+    <span class="c1"># Encode the model</span>
+    <span class="n">model_enc</span> <span class="o">=</span> <span class="n">encode_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">factors</span><span class="p">)</span>
+
+    <span class="c1"># Create empty design</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">plot_sizes</span><span class="p">),</span> <span class="n">factors</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+    <span class="c1"># Set iteration callback</span>
+    <span class="k">if</span> <span class="n">it_callback</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">it_callback</span> <span class="o">=</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="c1"># Store determinants</span>
+    <span class="n">metrics</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_tries</span><span class="p">)</span>
+    <span class="n">best_metric</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">best_Y</span> <span class="o">=</span> <span class="n">Y</span>
+
+    <span class="c1"># Initialize ratios</span>
+    <span class="k">if</span> <span class="n">ratios</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ratios</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">plot_sizes</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">ratios</span><span class="o">.</span><span class="n">size</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">plot_sizes</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+        <span class="n">ratios</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">]),</span> <span class="n">ratios</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">ratios</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">plot_sizes</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="s1">&#39;Ratio sizes do not match plot sizes&#39;</span>
+        <span class="k">assert</span> <span class="n">ratios</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;First element of ratios should be 1&#39;</span>
+
+    <span class="c1"># Compute pre-state</span>
+    <span class="n">prestate</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">preinit</span><span class="p">(</span><span class="n">plot_sizes</span><span class="p">,</span> <span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">model_enc</span><span class="p">),</span> <span class="n">factors</span><span class="p">,</span> <span class="n">ratios</span><span class="p">)</span>
+
+    <span class="c1"># Try multiple random starts</span>
+    <span class="k">with</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">n_tries</span><span class="p">)</span> <span class="k">as</span> <span class="n">pbar</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n_tries</span><span class="p">:</span>
+            <span class="c1">##################################################</span>
+            <span class="c1"># DESIGN CREATION</span>
+            <span class="c1">##################################################</span>
+            <span class="c1"># Initialize random design and encode it</span>
+            <span class="n">Yo</span> <span class="o">=</span> <span class="n">initialize_single</span><span class="p">(</span><span class="n">plot_sizes</span><span class="p">,</span> <span class="n">factors</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+            <span class="n">Yoenc</span> <span class="o">=</span> <span class="n">encode_design</span><span class="p">(</span><span class="n">Yo</span><span class="p">,</span> <span class="n">factors</span><span class="p">)</span>
+
+            <span class="c1">##################################################</span>
+            <span class="c1"># OPTIMIZATION</span>
+            <span class="c1">##################################################</span>
+            <span class="n">Yo</span><span class="p">,</span> <span class="n">metric</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">Yoenc</span><span class="p">,</span> <span class="n">model_enc</span><span class="p">,</span> <span class="n">plot_sizes</span><span class="p">,</span> <span class="n">factors</span><span class="p">,</span> 
+                                  <span class="n">optim</span><span class="p">,</span> <span class="n">prestate</span><span class="p">,</span> <span class="n">max_it</span><span class="o">=</span><span class="n">max_it</span><span class="p">,</span> <span class="n">default_coords</span><span class="o">=</span><span class="n">default_coords</span><span class="p">)</span>
+
+            <span class="c1"># Store the results</span>
+            <span class="n">metrics</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">metric</span>
+            <span class="k">if</span> <span class="n">metric</span> <span class="o">&gt;</span> <span class="n">best_metric</span><span class="p">:</span>
+                <span class="n">best_metric</span> <span class="o">=</span> <span class="n">metric</span>
+                <span class="n">best_Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">Yo</span><span class="p">)</span>
+
+            <span class="c1"># Update the progress</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">it_callback</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="c1"># Decode the optimal design</span>
+    <span class="n">best_Y</span> <span class="o">=</span> <span class="n">decode_design</span><span class="p">(</span><span class="n">best_Y</span><span class="p">,</span> <span class="n">factors</span><span class="p">)</span>        
+
+    <span class="k">return</span> <span class="n">best_Y</span><span class="p">,</span> <span class="n">metrics</span></div>
+
+
+
+
+
+
+</pre></div>
+
+            </article>
+            
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+          </div>
+        </footer>
+        
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b"></script>
+
+  <footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2022, Mathias Born.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+<p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+
+  </div>
+  
+</div>
+  </footer>
+  </body>
+</html>

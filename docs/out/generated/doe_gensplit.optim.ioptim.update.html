@@ -1,0 +1,740 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>update &#8212; doe_gensplit</title>
+  <script>
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=9b1a4fa89bdd0e95b23b" rel="stylesheet">
+
+  
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/6.1.2/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generated/doe_gensplit.optim.ioptim.update';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="IoptimPreState" href="doe_gensplit.optim.ioptim.IoptimPreState.html" />
+    <link rel="prev" title="preinit" href="doe_gensplit.optim.ioptim.preinit.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="None">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fas fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <p class="title logo__title">doe_gensplit</p>
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                <li class="nav-item">
+                    <a class="nav-link" href="../design.html">
+                        Design
+                    </a>
+                </li>
+                
+
+                <li class="nav-item current active">
+                    <a class="nav-link" href="../api.html">
+                        API
+                    </a>
+                </li>
+                
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      <div class="navbar-end-item navbar-end__search-button-container">
+        
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <span class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  <div class="search-button-container--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search">
+  <i class="fas fa-search"></i>
+</button>
+  </div>
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fas fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                <li class="nav-item">
+                    <a class="nav-link" href="../design.html">
+                        Design
+                    </a>
+                </li>
+                
+
+                <li class="nav-item current active">
+                    <a class="nav-link" href="../api.html">
+                        API
+                    </a>
+                </li>
+                
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <span class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">
+    Section Navigation
+  </p>
+  <div class="bd-toc-item navbar-nav">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="doe_gensplit.doe.html">
+   doe
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label class="toctree-toggle" for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="doe_gensplit.doe.doe.html">
+     doe
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="doe_gensplit.doe.generate_coordinates.html">
+     generate_coordinates
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="doe_gensplit.doe.optimize.html">
+     optimize
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="doe_gensplit.doe.x2fx.html">
+     x2fx
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="doe_gensplit.encode.html">
+   encode
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label class="toctree-toggle" for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="doe_gensplit.encode.decode_design.html">
+     decode_design
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="doe_gensplit.encode.encode_design.html">
+     encode_design
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="doe_gensplit.encode.encode_model.html">
+     encode_model
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="doe_gensplit.init.html">
+   init
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label class="toctree-toggle" for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="doe_gensplit.init.initialize.html">
+     initialize
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="doe_gensplit.init.initialize_single.html">
+     initialize_single
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="doe_gensplit.optimizers.html">
+   optimizers
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label class="toctree-toggle" for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="doe_gensplit.optimizers.compute_update.html">
+     compute_update
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="doe_gensplit.optimizers.det_update.html">
+     det_update
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="doe_gensplit.optimizers.inv_update.html">
+     inv_update
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="doe_gensplit.optimizers.inv_update_no_P.html">
+     inv_update_no_P
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="doe_gensplit.optimizers.Optim.html">
+     Optim
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label class="toctree-toggle" for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="doe_gensplit.optimizers.Optim.count.html">
+       count
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="doe_gensplit.optimizers.Optim.index.html">
+       index
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="doe_gensplit.utils.html">
+   utils
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label class="toctree-toggle" for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="doe_gensplit.utils.np_all_axis1.html">
+     np_all_axis1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="doe_gensplit.utils.np_take_advanced.html">
+     np_take_advanced
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="doe_gensplit.utils.obs_var.html">
+     obs_var
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="doe_gensplit.validation.html">
+   validation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label class="toctree-toggle" for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="doe_gensplit.validation.validate_design.html">
+     validate_design
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="doe_gensplit.validation.validate_model.html">
+     validate_model
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="doe_gensplit.optim.html">
+   optim
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label class="toctree-toggle" for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="doe_gensplit.optim.doptim.html">
+     doptim
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+    <label class="toctree-toggle" for="toctree-checkbox-9">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="doe_gensplit.optim.doptim.init.html">
+       init
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="doe_gensplit.optim.doptim.metric.html">
+       metric
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="doe_gensplit.optim.doptim.preinit.html">
+       preinit
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="doe_gensplit.optim.doptim.update.html">
+       update
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="doe_gensplit.optim.doptim.DoptimPreState.html">
+       DoptimPreState
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label class="toctree-toggle" for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="doe_gensplit.optim.doptim.DoptimPreState.count.html">
+         count
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="doe_gensplit.optim.doptim.DoptimPreState.index.html">
+         index
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="doe_gensplit.optim.doptim.DoptimState.html">
+       DoptimState
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label class="toctree-toggle" for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="doe_gensplit.optim.doptim.DoptimState.count.html">
+         count
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="doe_gensplit.optim.doptim.DoptimState.index.html">
+         index
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="doe_gensplit.optim.ioptim.html">
+     ioptim
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+    <label class="toctree-toggle" for="toctree-checkbox-12">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="doe_gensplit.optim.ioptim.init.html">
+       init
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="doe_gensplit.optim.ioptim.metric.html">
+       metric
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="doe_gensplit.optim.ioptim.outer_integral.html">
+       outer_integral
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="doe_gensplit.optim.ioptim.preinit.html">
+       preinit
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       update
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="doe_gensplit.optim.ioptim.IoptimPreState.html">
+       IoptimPreState
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label class="toctree-toggle" for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="doe_gensplit.optim.ioptim.IoptimPreState.count.html">
+         count
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="doe_gensplit.optim.ioptim.IoptimPreState.index.html">
+         index
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="doe_gensplit.optim.ioptim.IoptimState.html">
+       IoptimState
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+      <label class="toctree-toggle" for="toctree-checkbox-14">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="doe_gensplit.optim.ioptim.IoptimState.count.html">
+         count
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="doe_gensplit.optim.ioptim.IoptimState.index.html">
+         index
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+  </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+      </div>
+      <main class="bd-main">
+        
+        
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
+            </div>
+            
+            
+            <article class="bd-article" role="main">
+              
+  <section id="update">
+<h1>update<a class="headerlink" href="#update" title="Permalink to this headline">#</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="doe_gensplit.optim.ioptim.update">
+<span class="sig-prename descclassname"><span class="pre">doe_gensplit.optim.ioptim.</span></span><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Xi_star</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/doe_gensplit/optim/ioptim.html#update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#doe_gensplit.optim.ioptim.update" title="Permalink to this definition">#</a></dt>
+<dd><p>I-optimal criterion: update formula</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is Numba accelerated</p>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>state</strong><span class="classifier"><a class="reference internal" href="doe_gensplit.optim.ioptim.IoptimState.html#doe_gensplit.optim.ioptim.IoptimState" title="doe_gensplit.optim.ioptim.IoptimState"><code class="xref py py-class docutils literal notranslate"><span class="pre">IoptimState</span></code></a></span></dt><dd><p>The state object of the optimizer</p>
+</dd>
+<dt><strong>X</strong><span class="classifier">np.array(2d)</span></dt><dd><p>The model matrix of the current design</p>
+</dd>
+<dt><strong>Xi_star</strong><span class="classifier">np.array(2d)</span></dt><dd><p>The new block of rows</p>
+</dd>
+<dt><strong>level</strong><span class="classifier">int</span></dt><dd><p>The split-level of the update</p>
+</dd>
+<dt><strong>grp</strong><span class="classifier">int</span></dt><dd><p>The group number within the given split-level that was updated</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>improved</strong><span class="classifier">bool</span></dt><dd><p>Whether the metric was improved</p>
+</dd>
+<dt><strong>state</strong><span class="classifier"><a class="reference internal" href="doe_gensplit.optim.ioptim.IoptimState.html#doe_gensplit.optim.ioptim.IoptimState" title="doe_gensplit.optim.ioptim.IoptimState"><code class="xref py py-class docutils literal notranslate"><span class="pre">IoptimState</span></code></a></span></dt><dd><p>The new state</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            </article>
+            
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+  <a class='left-prev' id="prev-link" href="doe_gensplit.optim.ioptim.preinit.html" title="previous page">
+      <i class="fas fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">preinit</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="doe_gensplit.optim.ioptim.IoptimPreState.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">IoptimPreState</p>
+  </div>
+  <i class="fas fa-angle-right"></i>
+  </a>
+</div>
+            </footer>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+          </div>
+        </footer>
+        
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=9b1a4fa89bdd0e95b23b"></script>
+
+  <footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2022, Mathias Born.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+<p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+
+  </div>
+  
+</div>
+  </footer>
+  </body>
+</html>
