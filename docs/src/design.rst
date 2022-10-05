@@ -3,7 +3,8 @@ Design
 
 Installation
 ------------
-The installation is easily possible by using ``pip install .`` or directly from git. There are two additional
+The installation is easily possible by using ``pip install .`` or directly from git 
+(``pip install "doe_gensplit @ git+https://gitlab.com/mborn/generalizing-split-plots"``). There are two additional
 options: `dev` and `examples` (installed by ``pip install .[dev]`` and ``pip install .[examples]`` respectively). 
 The first adds extra dependencies to update the documentation, the
 second add some dependencies (like pandas) to run the examples.
