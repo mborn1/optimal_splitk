@@ -1,6 +1,10 @@
 diary
 *.ini
 
+### HTCONDOR ###
+deploy_token
+htcondor/*
+
 ### Design of experiments ###
 *cache*
 *design.zip

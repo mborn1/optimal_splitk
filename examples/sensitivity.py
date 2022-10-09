@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import numpy as np
 import pandas as pd
 from doe_gensplit.utils import obs_var
@@ -7,12 +8,14 @@ from doe_gensplit.doe import x2fx, doe
 
 import argparse
 parser = argparse.ArgumentParser(description="Perform a sensitivity analysis")
-parser.add_argument('--start', type=float, help='The start fraction. Used for multiprocessing', default=0.0)
-parser.add_argument('--stop', type=float, help='The stop fraction. Used for multiprocessing', default=1.0)
+parser.add_argument('--proc', type=int, help='The current process', default=0)
+parser.add_argument('--total', type=int, help='The total amount of processes', default=1)
 parser.add_argument('--ratios', type=float, nargs='+', help='The ratios to check for each level', default=[0.1, 1, 10])
 parser.add_argument('--out', type=str, default='r.csv', help='The output file for the results')
 parser.add_argument('--n', default=1000, type=int, help='The amount of random designs per ratio')
 args = parser.parse_args()
+
+print(args)
 
 #####################################################################
 def create_max_model(labels_quad, labels_int, labels_lin):
@@ -85,13 +88,17 @@ for i in range(len(plot_sizes) - 2):
         np.tile(ratios, r.shape[1])[np.newaxis, :], 
         np.repeat(r, ratios.size).reshape(r.shape[0], -1)
     ))
+print('Total size:', r.shape[1] * r.shape[1])
 
 # Partition for use in multiprocessing
-r = r[:, int(args.start * r.shape[1]): int(args.stop * r.shape[1])]
+start = int(args.proc / args.total * r.shape[1] * r.shape[1])
+stop = int((args.proc + 1) / args.total * r.shape[1] * r.shape[1])
+print('Range:', start, stop)
 
 # Loop over all combinations of true ratios
-res = np.zeros((r.shape[1]**2, 2*r.shape[0] + 2))
+res = np.zeros((stop - start, 2*r.shape[0] + 2))
 i = 0
+j = 0
 for true_ratio in r.T:
     # Compute the true observation matrix
     true_ratio = np.concatenate(([1], true_ratio))
@@ -99,19 +106,21 @@ for true_ratio in r.T:
 
     # Loop over all combinations of design ratios
     for design_ratio in r.T:
-        # Compute the design
-        design_ratio = np.concatenate(([1], design_ratio))
-        best_Y, metrics = doe(model, plot_sizes, factors, n_tries=args.n, ratios=design_ratio)
-        det_val = np.max(metrics) ** (1/len(model))
+        if start <= i < stop:
+            # Compute the design
+            design_ratio = np.concatenate(([1], design_ratio))
+            best_Y, metrics = doe(model, plot_sizes, factors, n_tries=args.n, ratios=design_ratio)
+            det_val = np.max(metrics) ** (1/len(model))
 
-        # Compute the metric ratio
-        best_X = x2fx(encode_design(best_Y, factors), model_enc)
-        det_val_true = np.linalg.det(best_X.T @ np.linalg.solve(V_true, best_X)) ** (1/len(model))
+            # Compute the metric ratio
+            best_X = x2fx(encode_design(best_Y, factors), model_enc)
+            det_val_true = np.linalg.det(best_X.T @ np.linalg.solve(V_true, best_X)) ** (1/len(model))
 
-        # Add to the results
-        res[i, :r.shape[0]] = true_ratio[1:]
-        res[i, r.shape[0]:2*r.shape[0]] = design_ratio[1:]
-        res[i, 2*r.shape[0]:] = (det_val, det_val_true) 
+            # Add to the results
+            res[j, :r.shape[0]] = true_ratio[1:]
+            res[j, r.shape[0]:2*r.shape[0]] = design_ratio[1:]
+            res[j, 2*r.shape[0]:] = (det_val, det_val_true) 
+            j += 1
         i += 1
 
     np.savetxt(args.out, res)
