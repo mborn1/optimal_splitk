@@ -11,18 +11,17 @@ parser = argparse.ArgumentParser(description="Perform a sensitivity analysis")
 parser.add_argument('--proc', type=int, help='The current process', default=0)
 parser.add_argument('--total', type=int, help='The total amount of processes', default=1)
 parser.add_argument('--ratios', type=float, nargs='+', help='The ratios to check for each level', default=[0.1, 1, 10])
-parser.add_argument('--out', type=str, default='r.csv', help='The output file for the results')
+parser.add_argument('--root', type=str, default='.', help='The output file for the results')
 parser.add_argument('--n', default=1000, type=int, help='The amount of random designs per ratio')
 args = parser.parse_args()
 
 print(args)
+outfile = f'{args.root}/r{args.proc}.csv'
 import os
-if os.path.exists(args.out):
-#if np.any(np.all(init == 0, axis=1)):
+if os.path.exists(outfile):
     print('Already completed')
     exit(0)
-print(os.environ.get('NUMBA_CACHE_DIR'))
-os.environ['NUMBA_CACHE_DIR'] = f'./cache/c{args.proc}'
+os.environ['NUMBA_CACHE_DIR'] = f'{args.root}/cache/c{args.proc}'
 
 #####################################################################
 def create_max_model(labels_quad, labels_int, labels_lin):
@@ -97,21 +96,24 @@ for i in range(len(plot_sizes) - 2):
     ))
 
 # Partition for use in multiprocessing
-total_size = r.shape[1] * ratios.size
+total_size = r.shape[1]
 start = int(args.proc / args.total * total_size)
 stop = int((args.proc + 1) / args.total * total_size)
 print('Range:', start, stop)
 
+# Compute true covariances
+V_trues = [(true_ratio, obs_var(plot_sizes, ratios=np.concatenate(([1], true_ratio)))) for true_ratio in r.T]
+
 # Loop over all combinations of true ratios
-res = np.zeros((stop - start, 2*r.shape[0] + 2))
+res = np.zeros(((stop - start) * r.shape[1], 2*r.shape[0] + 2))
 i = 0
 j = 0
 #for true_ratio in r.T:
-for true_ratio in ratios:
+for _ in [0]:
     # Compute the true observation matrix
     #true_ratio = np.concatenate(([1], true_ratio))
-    true_ratio = np.concatenate(([1], [true_ratio]*ratios.size))
-    V_true = obs_var(plot_sizes, ratios=true_ratio)
+    #true_ratio = np.concatenate(([1], [true_ratio]*ratios.size))
+    #V_true = obs_var(plot_sizes, ratios=true_ratio)
 
     # Loop over all combinations of design ratios
     for design_ratio in r.T:
@@ -123,15 +125,18 @@ for true_ratio in ratios:
 
             # Compute the metric ratio
             best_X = x2fx(encode_design(best_Y, factors), model_enc)
-            det_val_true = np.linalg.det(best_X.T @ np.linalg.solve(V_true, best_X)) ** (1/len(model))
 
-            # Add to the results
-            res[j, :r.shape[0]] = true_ratio[1:]
-            res[j, r.shape[0]:2*r.shape[0]] = design_ratio[1:]
-            res[j, 2*r.shape[0]:] = (det_val, det_val_true) 
-            j += 1
+            for true_ratio, V_true in V_trues:
+                # Compute True D-criterion
+                det_val_true = np.linalg.det(best_X.T @ np.linalg.solve(V_true, best_X)) ** (1/len(model))
+
+                # Add to the results
+                res[j, :r.shape[0]] = design_ratio[1:]
+                res[j, r.shape[0]:2*r.shape[0]] = true_ratio
+                res[j, 2*r.shape[0]:] = (det_val, det_val_true)
+                j += 1
         i += 1
 
-    np.savetxt(args.out, res)
+    np.savetxt(outfile, res)
 
 print(os.environ.get('NUMBA_CACHE_DIR'))
