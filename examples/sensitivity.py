@@ -16,6 +16,13 @@ parser.add_argument('--n', default=1000, type=int, help='The amount of random de
 args = parser.parse_args()
 
 print(args)
+import os
+if os.path.exists(args.out):
+#if np.any(np.all(init == 0, axis=1)):
+    print('Already completed')
+    exit(0)
+print(os.environ.get('NUMBA_CACHE_DIR'))
+os.environ['NUMBA_CACHE_DIR'] = f'./cache/c{args.proc}'
 
 #####################################################################
 def create_max_model(labels_quad, labels_int, labels_lin):
@@ -88,20 +95,22 @@ for i in range(len(plot_sizes) - 2):
         np.tile(ratios, r.shape[1])[np.newaxis, :], 
         np.repeat(r, ratios.size).reshape(r.shape[0], -1)
     ))
-print('Total size:', r.shape[1] * r.shape[1])
 
 # Partition for use in multiprocessing
-start = int(args.proc / args.total * r.shape[1] * r.shape[1])
-stop = int((args.proc + 1) / args.total * r.shape[1] * r.shape[1])
+total_size = r.shape[1] * ratios.size
+start = int(args.proc / args.total * total_size)
+stop = int((args.proc + 1) / args.total * total_size)
 print('Range:', start, stop)
 
 # Loop over all combinations of true ratios
 res = np.zeros((stop - start, 2*r.shape[0] + 2))
 i = 0
 j = 0
-for true_ratio in r.T:
+#for true_ratio in r.T:
+for true_ratio in ratios:
     # Compute the true observation matrix
-    true_ratio = np.concatenate(([1], true_ratio))
+    #true_ratio = np.concatenate(([1], true_ratio))
+    true_ratio = np.concatenate(([1], [true_ratio]*ratios.size))
     V_true = obs_var(plot_sizes, ratios=true_ratio)
 
     # Loop over all combinations of design ratios
@@ -124,3 +133,5 @@ for true_ratio in r.T:
         i += 1
 
     np.savetxt(args.out, res)
+
+print(os.environ.get('NUMBA_CACHE_DIR'))
