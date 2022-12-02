@@ -13,15 +13,10 @@ parser.add_argument('--total', type=int, help='The total amount of processes', d
 parser.add_argument('--ratios', type=float, nargs='+', help='The ratios to check for each level', default=[0.1, 1, 10])
 parser.add_argument('--root', type=str, default='.', help='The output file for the results')
 parser.add_argument('--n', default=1000, type=int, help='The amount of random designs per ratio')
+parser.add_argument('--reps', default=1, type=int, help='The amount of repetitions to make')
 args = parser.parse_args()
 
 print(args)
-outfile = f'{args.root}/r{args.proc}.csv'
-import os
-if os.path.exists(outfile):
-    print('Already completed')
-    exit(0)
-os.environ['NUMBA_CACHE_DIR'] = f'{args.root}/cache/c{args.proc}'
 
 #####################################################################
 def create_max_model(labels_quad, labels_int, labels_lin):
@@ -96,10 +91,13 @@ for i in range(len(plot_sizes) - 2):
     ))
 
 # Partition for use in multiprocessing
-total_size = r.shape[1]
+total_size = r.shape[1] * args.reps
 start = int(args.proc / args.total * total_size)
 stop = int((args.proc + 1) / args.total * total_size)
 print('Range:', start, stop)
+
+# Create the output file
+outfile = f'{args.root}/r{args.proc}.csv'
 
 # Compute true covariances
 V_trues = [(true_ratio, obs_var(plot_sizes, ratios=np.concatenate(([1], true_ratio)))) for true_ratio in r.T]
@@ -108,13 +106,7 @@ V_trues = [(true_ratio, obs_var(plot_sizes, ratios=np.concatenate(([1], true_rat
 res = np.zeros(((stop - start) * r.shape[1], 2*r.shape[0] + 2))
 i = 0
 j = 0
-#for true_ratio in r.T:
-for _ in [0]:
-    # Compute the true observation matrix
-    #true_ratio = np.concatenate(([1], true_ratio))
-    #true_ratio = np.concatenate(([1], [true_ratio]*ratios.size))
-    #V_true = obs_var(plot_sizes, ratios=true_ratio)
-
+for rep in range(args.reps):
     # Loop over all combinations of design ratios
     for design_ratio in r.T:
         if start <= i < stop:
@@ -138,5 +130,3 @@ for _ in [0]:
         i += 1
 
     np.savetxt(outfile, res)
-
-print(os.environ.get('NUMBA_CACHE_DIR'))
