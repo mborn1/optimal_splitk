@@ -35,10 +35,7 @@ def __init_unconstrained(factors, Y, alphas, betas):
             if typ >= n:
                 r = np.random.choice(choices, n, replace=False)
             else:
-                r = np.random.choice(choices, n)
-                # Make sure there is no constant column
-                if np.all(r == r[0]):
-                    r[0] = 0 if r[0] != 0 else 1
+                r = np.random.permutation(np.concatenate((choices, np.random.choice(choices, n - choices.size))))
         
         # Fill design
         for i in range(n):
