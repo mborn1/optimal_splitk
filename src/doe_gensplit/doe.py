@@ -213,8 +213,12 @@ def optimize(Y, model, plot_sizes, factors,
                         # Compute the model matrix of the update
                         Xi_star = x2fx(Y[runs], model)
 
-                        # Compute the update
-                        accept, state = optim.update(state, X, Xi_star, level, grp)
+                        # Protection against singularity errors
+                        try:
+                            # Compute the update
+                            accept, state = optim.update(state, X, Xi_star, level, grp)
+                        except Exception:
+                            accept = False
                         
                         ##################################################
                         # ACCEPT UPDATE
