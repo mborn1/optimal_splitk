@@ -248,7 +248,7 @@ def optimize(Y, model, plot_sizes, factors,
 ##  DOE WRAPPER
 ##################################################################
 
-def doe(model, plot_sizes, factors, n_tries=10, max_it=10, 
+def doe(model, plot_sizes, factors, n_tries=10, max_it=10000, 
         it_callback=None, optim=Doptim, default_coords=None, ratios=None):
     """
     Create a D-optimal design of experiments (DOE) using the coordinate exchange algorithm.
