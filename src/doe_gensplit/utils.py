@@ -69,6 +69,13 @@ def np_take_advanced(arr, idx, out=None):
     # Reshape and return
     return out.reshape((*shape, *arr.shape[1:]))
 
+@numba.njit(cache=True)
+def np_argmax1(arr):
+    out = np.zeros(arr.shape[0], dtype=np.int64)
+    for i in range(out.size):
+        out[i] = np.argmax(arr[i])
+    return out
+
 ##################################################################
 ##  GENERAL UTILS
 ##################################################################

@@ -1,8 +1,9 @@
 import numpy as np
 import numba
+from .utils import np_argmax1
 
 @numba.njit(cache=True)
-def __init_unconstrained(factors, Y, alphas, betas):
+def __init_unconstrained(factors, Y, alphas, betas, coords=None):
     """
     This function is created to avoid possible recursion. Numba has issues with it.
 
@@ -26,13 +27,29 @@ def __init_unconstrained(factors, Y, alphas, betas):
         n = alphas[level]
         size = betas[level]
 
-        if typ == 1:
-            # Continuous factor
-            r = np.random.rand(n) * 2 - 1
+        if coords is None:
+            if typ == 1:
+                # Continuous factor
+                r = np.random.rand(n) * 2 - 1
+            else:
+                # Discrete factor
+                choices = np.arange(typ, dtype=np.float64)
+                if typ >= n:
+                    r = np.random.choice(choices, n, replace=False)
+                else:
+                    r = np.random.permutation(np.concatenate((choices, np.random.choice(choices, n - choices.size))))
         else:
-            # Discrete factor
-            choices = np.arange(typ, dtype=np.float64)
-            if typ >= n:
+            # Extract the possible coordinates
+            if typ > 1:
+                # Convert to decoded values for categorical factors
+                c = coords[col]
+                m = np_argmax1(c).astype(np.float64)
+                choices = np.where((m == 0) & (c[:, 0] == -1), typ-1, m)
+            else:
+                choices = coords[col].flatten()
+
+            # Pick from the choices and try to have all of them atleast once
+            if choices.size >= n:
                 r = np.random.choice(choices, n, replace=False)
             else:
                 r = np.random.permutation(np.concatenate((choices, np.random.choice(choices, n - choices.size))))
@@ -44,7 +61,7 @@ def __init_unconstrained(factors, Y, alphas, betas):
     return Y
 
 @numba.njit(cache=True)
-def initialize_single(plot_sizes, factors, Y=None):
+def initialize_single(plot_sizes, factors, Y=None, coords=None):
     """
     Generate a random initial design for multiple-split plot problem.
 
@@ -90,12 +107,12 @@ def initialize_single(plot_sizes, factors, Y=None):
     ##################################################
     # LOW-LEVEL FUNCTION
     ##################################################
-    Y = __init_unconstrained(factors, Y, alphas, betas)
+    Y = __init_unconstrained(factors, Y, alphas, betas, coords=coords)
 
     return Y
 
 @numba.njit(cache=True)
-def initialize(plot_sizes, factors, Y=None, n=1):
+def initialize(plot_sizes, factors, Y=None, n=1, coords=None):
     """
     Initialize multiple designs at the same time.
 
@@ -108,7 +125,7 @@ def initialize(plot_sizes, factors, Y=None, n=1):
 
     # Loop and initialize
     for i in range(n):
-        Y[i] = initialize_single(plot_sizes, factors, Y=Y[i])
+        Y[i] = initialize_single(plot_sizes, factors, Y=Y[i], coords=coords)
 
     return Y
 

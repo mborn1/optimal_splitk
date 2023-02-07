@@ -332,25 +332,28 @@ def doe(model, plot_sizes, factors, n_tries=10, max_it=10,
             # DESIGN CREATION
             ##################################################
             # Initialize random design and encode it
-            Yo = initialize_single(plot_sizes, factors, Y)
+            Yo = initialize_single(plot_sizes, factors, Y, coords=default_coords)
             Yoenc = encode_design(Yo, factors)
 
             ##################################################
             # OPTIMIZATION
             ##################################################
-            Yo, metric = optimize(Yoenc, model_enc, plot_sizes, factors, 
-                                  optim, prestate, max_it=max_it, default_coords=default_coords)
+            try:
+                Yo, metric = optimize(Yoenc, model_enc, plot_sizes, factors, 
+                                    optim, prestate, max_it=max_it, default_coords=default_coords)
 
-            # Store the results
-            metrics[i] = metric
-            if metric > best_metric:
-                best_metric = metric
-                best_Y = np.copy(Yo)
+                # Store the results
+                metrics[i] = metric
+                if metric > best_metric:
+                    best_metric = metric
+                    best_Y = np.copy(Yo)
 
-            # Update the progress
-            i += 1
-            pbar.update(1)
-            it_callback(i)
+                # Update the progress
+                i += 1
+                pbar.update(1)
+                it_callback(i)
+            except np.linalg.LinAlgError:
+                pass
 
     # Decode the optimal design
     best_Y = decode_design(best_Y, factors)        
