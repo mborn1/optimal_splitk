@@ -103,6 +103,10 @@ def init(prestate, Y, X):
     state : :py:class:`IoptimState`
         Return a state object
     """   
+    # Validate rank of matrix
+    if np.linalg.matrix_rank(X) != X.shape[1]:
+        raise np.linalg.LinAlgError('Matrix M is singular')
+
     # Compute information matrix
     M = X.T @ np.linalg.solve(prestate.V, X)
 

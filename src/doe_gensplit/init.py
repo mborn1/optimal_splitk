@@ -37,7 +37,8 @@ def __init_unconstrained(factors, Y, alphas, betas, coords=None):
                 if typ >= n:
                     r = np.random.choice(choices, n, replace=False)
                 else:
-                    r = np.random.permutation(np.concatenate((choices, np.random.choice(choices, n - choices.size))))
+                    n_replicates = n // choices.size
+                    r = np.random.permutation(np.concatenate((np.repeat(choices, n_replicates), np.random.choice(choices, n - choices.size * n_replicates))))
         else:
             # Extract the possible coordinates
             if typ > 1:
@@ -52,7 +53,8 @@ def __init_unconstrained(factors, Y, alphas, betas, coords=None):
             if choices.size >= n:
                 r = np.random.choice(choices, n, replace=False)
             else:
-                r = np.random.permutation(np.concatenate((choices, np.random.choice(choices, n - choices.size))))
+                n_replicates = n // choices.size
+                r = np.random.permutation(np.concatenate((np.repeat(choices, n_replicates), np.random.choice(choices, n - choices.size * n_replicates))))
         
         # Fill design
         for i in range(n):
