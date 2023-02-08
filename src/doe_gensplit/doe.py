@@ -309,7 +309,7 @@ def doe(model, plot_sizes, factors, n_tries=10, max_it=10000,
 
     # Store determinants
     metrics = np.zeros(n_tries)
-    best_metric = 0
+    best_metric = -np.inf
     best_Y = Y
 
     # Initialize ratios
@@ -356,7 +356,7 @@ def doe(model, plot_sizes, factors, n_tries=10, max_it=10000,
                 pass
 
     # Decode the optimal design
-    best_Y = decode_design(best_Y, factors)        
+    best_Y = decode_design(best_Y, factors)     
 
     return best_Y, metrics
 
