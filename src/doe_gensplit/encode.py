@@ -1,6 +1,6 @@
 import numpy as np
 import numba
-from .utils import np_take_advanced, cACHE
+from .utils import np_take_advanced, CACHE
 
 
 def encode_model(model, factors):
