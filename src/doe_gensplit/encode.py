@@ -1,6 +1,6 @@
 import numpy as np
 import numba
-from .utils import np_take_advanced
+from .utils import np_take_advanced, cACHE
 
 
 def encode_model(model, factors):
@@ -66,7 +66,7 @@ def encode_model(model, factors):
 
     return model
 
-@numba.njit
+@numba.njit(cache=CACHE)
 def encode_design(Y, factors):
     """
     Encode the design according to the factors.
@@ -114,7 +114,7 @@ def encode_design(Y, factors):
 
     return Yenc
 
-@numba.njit
+@numba.njit(cache=CACHE)
 def decode_design(Y, factors):
     """
     Decode the design according to the factors.

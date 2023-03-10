@@ -1,8 +1,8 @@
 import numpy as np
 import numba
-from .utils import np_argmax1
+from .utils import np_argmax1, CACHE
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def __init_unconstrained(factors, Y, alphas, betas, coords=None):
     """
     This function is created to avoid possible recursion. Numba has issues with it.
@@ -62,7 +62,7 @@ def __init_unconstrained(factors, Y, alphas, betas, coords=None):
 
     return Y
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def initialize_single(plot_sizes, factors, Y=None, coords=None):
     """
     Generate a random initial design for multiple-split plot problem.
@@ -113,7 +113,7 @@ def initialize_single(plot_sizes, factors, Y=None, coords=None):
 
     return Y
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def initialize(plot_sizes, factors, Y=None, n=1, coords=None):
     """
     Initialize multiple designs at the same time.

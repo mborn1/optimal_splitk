@@ -2,11 +2,13 @@ import numba
 import numpy as np
 from numba.typed import List
 
+CACHE = False
+
 ##################################################################
 ##  NUMBA COMPATIBLE NUMPY FUNCTIONS
 ##################################################################
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def np_all_axis1(x):
     """
     Numba compatible implementation of np.all(..., axis=1) for
@@ -30,7 +32,7 @@ def np_all_axis1(x):
         out[i] = np.all(x[i, :])
     return out
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def np_take_advanced(arr, idx, out=None):
     """
     Take elements from a NumPy array using advanced indexing as Numba is
@@ -69,7 +71,7 @@ def np_take_advanced(arr, idx, out=None):
     # Reshape and return
     return out.reshape((*shape, *arr.shape[1:]))
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def np_argmax1(arr):
     out = np.zeros(arr.shape[0], dtype=np.int64)
     for i in range(out.size):
@@ -80,7 +82,7 @@ def np_argmax1(arr):
 ##  GENERAL UTILS
 ##################################################################
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def obs_var(plot_sizes, alphas=None, betas=None, ratios=None):
     """
     The observation variance matrix of the generalized split-plot model.

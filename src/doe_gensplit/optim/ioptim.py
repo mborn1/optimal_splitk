@@ -1,5 +1,5 @@
 from ..optimizers import compute_update, inv_update_no_P, Optim
-from ..utils import obs_var
+from ..utils import obs_var, CACHE
 from ..init import initialize
 from ..encode import encode_design
 from ..doe import x2fx
@@ -10,7 +10,7 @@ import numpy as np
 IoptimPreState = namedtuple('IoptimPreState', 'plot_sizes betas betas_inv c V moments')
 IoptimState = namedtuple('IoptimState', 'plot_sizes betas betas_inv c V moments Minv metric')
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def outer_integral(arr):
     """
     Computes the integral of the outer products of the array rows (simple average)
@@ -33,7 +33,7 @@ def outer_integral(arr):
         out += arr[i].T @ arr[i]
     return out / arr.shape[0]
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def preinit(plot_sizes, model, factors, ratios):
     """
     Pre-initialize some constants necessary for computing metric updates.
@@ -81,7 +81,7 @@ def preinit(plot_sizes, model, factors, ratios):
 
     return IoptimPreState(plot_sizes, betas, betas_inv, c, V, moments)
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def init(prestate, Y, X): 
     """
     I-optimal criterion: initialization (try specific).
@@ -118,7 +118,7 @@ def init(prestate, Y, X):
 
     return IoptimState(prestate.plot_sizes, prestate.betas, prestate.betas_inv, prestate.c, prestate.V, prestate.moments, Minv, metric)
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def __metric(moments, Minv):
     """
     Computes the metrics from the moments matrix and the inverse information
@@ -144,7 +144,7 @@ def __metric(moments, Minv):
     metric = -np.sum(Minv * moments.T)
     return metric
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def metric(state, Y, X):
     """
     I-optimal criterion: metric
@@ -170,7 +170,7 @@ def metric(state, Y, X):
     # is already in the state from the update
     return __metric(state.moments, state.Minv)
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def update(state, X, Xi_star, level, grp):
     """
     I-optimal criterion: update formula

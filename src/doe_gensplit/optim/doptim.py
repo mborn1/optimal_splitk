@@ -1,5 +1,5 @@
 from ..optimizers import compute_update, det_update, inv_update, Optim
-from ..utils import obs_var
+from ..utils import obs_var, CACHE
 from collections import namedtuple
 import numba
 import numpy as np
@@ -10,7 +10,7 @@ DoptimPreState = namedtuple('DoptimPreState', 'plot_sizes alphas betas betas_inv
 # The state of the optimizer
 DoptimState = namedtuple('DoptimState', 'plot_sizes alphas betas betas_inv c V Minv')
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def preinit(plot_sizes, model, factors, ratios):
     """
     Pre-initialize some constants necessary for computing metric updates.
@@ -52,7 +52,7 @@ def preinit(plot_sizes, model, factors, ratios):
 
     return DoptimPreState(plot_sizes, alphas, betas, betas_inv, c, V)
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def init(prestate, Y, X): 
     """
     D-optimal criterion: initialization (try specific).
@@ -82,7 +82,7 @@ def init(prestate, Y, X):
 
     return DoptimState(prestate.plot_sizes, prestate.alphas, prestate.betas, prestate.betas_inv, prestate.c, prestate.V, Minv)
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def metric(state, Y, X):
     """
     D-optimal criterion: metric
@@ -108,7 +108,7 @@ def metric(state, Y, X):
     metric = np.linalg.det(X.T @ np.linalg.solve(state.V, X))
     return metric
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def update(state, X, Xi_star, level, grp):
     """
     D-optimal criterion: update formula

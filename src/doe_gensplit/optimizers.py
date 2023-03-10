@@ -1,10 +1,11 @@
 from collections import namedtuple
 import numba
 import numpy as np
+from .utils import CACHE
 
 Optim = namedtuple('Optim', 'preinit init update metric')
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def compute_update(level, grp, X, Xi_star, plot_sizes, c, betas=None, betas_inv=None):
     """
     Compute the update to the information matrix after making
@@ -128,7 +129,7 @@ def compute_update(level, grp, X, Xi_star, plot_sizes, c, betas=None, betas_inv=
     # Return values
     return U, D
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def det_update(U, D, Minv):
     """
     Compute the determinant adjustment as a factor.
@@ -170,7 +171,7 @@ def det_update(U, D, Minv):
     # Compute determinant update
     return np.linalg.det(P) * np.prod(D), P
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def inv_update(U, D, Minv, P):
     """
     Compute the update of the inverse of the information matrix.
@@ -209,7 +210,7 @@ def inv_update(U, D, Minv, P):
     """
     return (Minv @ U.T) @ np.linalg.solve(P, U @ Minv)
 
-@numba.njit(cache=True)
+@numba.njit(cache=CACHE)
 def inv_update_no_P(U, D, Minv):
     """
     Same function as :py:func:`inv_update`, except it computes the
