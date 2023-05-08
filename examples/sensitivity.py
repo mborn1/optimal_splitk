@@ -58,8 +58,8 @@ model = model.to_numpy()
 
 # The factor columns
 factors = np.array([
-    [3, 1],         # Drum
-    [2, 1],         # Sharpness
+    [3, 1],         # 
+    [2, 1],         #
     [1, 1],         # A
     [0, 1],         # LOC
     [0, 1],         # Capacity
