@@ -239,6 +239,8 @@ def optimize(Y, model, plot_sizes, factors,
         # Stop if nothing updated for an entire iteration
         if not updated:
             break
+        else:
+            state.Minv[:] = np.linalg.inv(X.T @ np.linalg.solve(state.V, X))
 
     # Compute the metric
     metric = optim.metric(state, Y, X)

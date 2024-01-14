@@ -119,8 +119,8 @@ def obs_var(plot_sizes, alphas=None, betas=None, ratios=None):
     # Compute variance-covariance of observations
     V = np.zeros((alphas[0], alphas[0]))
     for i in range(plot_sizes.size):
-        Zi = ratios[i] * np.kron(np.eye(alphas[i]), np.ones((betas[i], 1)))
-        V += Zi @ Zi.T
+        Zi = np.kron(np.eye(alphas[i]), np.ones((betas[i], 1)))
+        V += ratios[i] * Zi @ Zi.T
 
     return V
 
