@@ -22,7 +22,7 @@ from optimal_splitk import __version__ as lib_version
 # -- Project information -----------------------------------------------------
 
 project = 'optimal_splitk'
-copyright = '2022, Mathias Born'
+copyright = '2024, Mathias Born'
 author = 'Mathias Born'
 
 # The full version, including alpha/beta/rc tags
