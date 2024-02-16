@@ -1,4 +1,53 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = 'optimal_splitk'
+dynamic = ['version']
+description = 'DOE library for optimal split^k-plot designs with the coordinate exchange algorithm'
+readme = 'README.md'
+authors = [
+  { name = 'Mathias Born', email='mathias.born@kuleuven.be' },
+]
+license = {file = 'LICENSE'}
+requires-python = '>=3.8'
+dependencies = [
+  'numba==0.55.1',
+  'numpy==1.21.5',
+  'tqdm==4.64.0',
+  'scipy==1.8.0',
+]
+classifiers = [
+    'Environment :: Console',
+    'Intended Audience :: Science/Research',
+    'License :: OSI Approved :: BSD License',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3',
+    'Topic :: Scientific/Engineering'
+]
+
+[project.optional-dependencies]
+dev = [
+  'sphinx~=4.4',
+  'docutils<0.18',
+  'numpydoc~=1.2',
+  'pydata_sphinx_theme~=0.7',
+  'sphinx-copybutton~=0.5'
+]
+examples = [
+  'pandas==1.5.0',
+  'openpyxl==3.0.10'
+]
+
 [project.urls]
 homepage = 'https://github.com/mborn1/optimal_splitk'
 documentation = ''
 repository = 'https://github.com/mborn1/optimal_splitk'
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ['src']
