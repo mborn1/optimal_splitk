@@ -1,6 +1,6 @@
 import setuptools
 import site
-
+import re
 
 site.ENABLE_USER_SITE = 1
 
