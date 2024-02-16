@@ -13,9 +13,10 @@
 import pathlib
 import sys
 sys.path.append(
-    str(pathlib.Path(__file__).parents[2].resolve() / 'src')
+    str(pathlib.Path(__file__).parents[1].resolve() / 'src')
 )
 import datetime
+from optimal_splitk import __version__ as lib_version
 
 # -- Project information -----------------------------------------------------
 
@@ -23,6 +24,17 @@ project = 'optimal_splitk'
 copyright = '2024, Mathias Born'
 author = 'Mathias Born'
 
+# The full version, including alpha/beta/rc tags
+release = lib_version
+version = lib_version.split('-')[0]
+
+rst_epilog = f"""
+.. |version| replace:: {version}
+
+.. |release| replace:: {release} 
+
+.. |date| replace:: {format(datetime.datetime.now(), '%B %d, %Y')}
+"""
 
 # -- General configuration ---------------------------------------------------
 
