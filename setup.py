@@ -1,14 +1,18 @@
 import setuptools
 import site
 
+
 site.ENABLE_USER_SITE = 1
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+with open('src/optimal_splitk/__init__.py') as f:
+    version = re.search(r'__version__ = [\'"](.*)[\'"]', f.read()).group(1)
+
 setuptools.setup(
     name="optimal_splitk",
-    version="0.0.1",
+    version=version,
     author="Mathias Born",
     author_email="mathias.born@kuleuven.be",
     license_files = ('LICENSE',),
