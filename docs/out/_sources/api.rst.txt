@@ -1,7 +1,7 @@
 API
 ===
 
-.. automodule:: doe_gensplit
+.. automodule:: optimal_splitk
 
 .. rubric:: Modules
 
@@ -10,10 +10,10 @@ API
    :template: module.rst
    :recursive:
 
-   doe_gensplit.doe
-   doe_gensplit.encode
-   doe_gensplit.init
-   doe_gensplit.optimizers
-   doe_gensplit.utils
-   doe_gensplit.validation
-   doe_gensplit.optim
+   optimal_splitk.doe
+   optimal_splitk.encode
+   optimal_splitk.init
+   optimal_splitk.optimizers
+   optimal_splitk.utils
+   optimal_splitk.validation
+   optimal_splitk.optim

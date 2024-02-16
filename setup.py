@@ -7,11 +7,11 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="doe_gensplit",
+    name="optimal_splitk",
     version="0.0.1",
     author="Mathias Born",
     author_email="mathias.born@kuleuven.be",
-    description="DOE library generalizing split-plots",
+    description="DOE library for optimal split^k-plot designs with the coordinate exchange algorithm",
     long_description=long_description,
     long_description_content_type="text/markdown",
     classifiers=[

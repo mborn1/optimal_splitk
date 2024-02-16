@@ -16,12 +16,12 @@ sys.path.append(
     str(pathlib.Path(__file__).parents[2].resolve() / 'src')
 )
 import datetime
-from doe_gensplit import __version__ as lib_version
+from optimal_splitk import __version__ as lib_version
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'doe_gensplit'
+project = 'optimal_splitk'
 copyright = '2022, Mathias Born'
 author = 'Mathias Born'
 

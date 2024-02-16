@@ -1,5 +1,5 @@
-## doe_gensplit: generalizing split-plots
-**doe_gensplit** is a Python library design for creating generalized split-plot models.
+## optimal_splitk: Optimal split^k-plot designs with the coordinate exchange algorithm
+**optimal_splitk** is a Python library design for creating generalized split-plot models.
 It includes the fast-update procedures outlined in the accompanying article.
 
 ### Information

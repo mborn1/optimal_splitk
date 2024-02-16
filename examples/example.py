@@ -1,10 +1,10 @@
 import numpy as np
 import pandas as pd
 
-from doe_gensplit.doe import *
-from doe_gensplit.init import *
-from doe_gensplit.utils import *
-from doe_gensplit.validation import *
+from optimal_splitk.doe import *
+from optimal_splitk.init import *
+from optimal_splitk.utils import *
+from optimal_splitk.validation import *
 
 root = '.'
 
@@ -48,4 +48,4 @@ print('-------------------------------')
 print('Determinant:', np.max(metrics)**(1/len(model)), det_val**(1/len(model)))
 
 # Output design
-pd.DataFrame(best_Y, columns=columns).to_csv(f'{root}/out/example.csv', index=False)
+# pd.DataFrame(best_Y, columns=columns).to_csv(f'{root}/out/example.csv', index=False)

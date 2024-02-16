@@ -1,10 +1,10 @@
 #!/usr/bin/python
 import numpy as np
 import pandas as pd
-from doe_gensplit.utils import obs_var
-from doe_gensplit.encode import encode_model, encode_design
-from doe_gensplit.validation import validate_model
-from doe_gensplit.doe import x2fx, doe
+from optimal_splitk.utils import obs_var
+from optimal_splitk.encode import encode_model, encode_design
+from optimal_splitk.validation import validate_model
+from optimal_splitk.doe import x2fx, doe
 
 import argparse
 parser = argparse.ArgumentParser(description="Perform a sensitivity analysis")

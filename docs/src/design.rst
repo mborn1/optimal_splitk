@@ -4,7 +4,7 @@ Design
 Installation
 ------------
 The installation is easily possible by using ``pip install .`` or directly from git 
-(``pip install "doe_gensplit @ git+https://gitlab.com/mborn/generalizing-split-plots"``). There are two additional
+(``pip install "optimal_splitk @ git+https://github.com/mborn1/optimal_splitk.git"``). There are two additional
 options: `dev` and `examples` (installed by ``pip install .[dev]`` and ``pip install .[examples]`` respectively). 
 The first adds extra dependencies to update the documentation, the
 second add some dependencies (like pandas) to run the examples.
@@ -20,7 +20,7 @@ The project contains a couple folders:
 
 Code design
 -----------
-The code is designed using a couple modules under ``src/doe_gensplit``. The `doe` module contains the main
+The code is designed using a couple modules under ``src/optimal_splitk``. The `doe` module contains the main
 entry point for generating designs. Besides the main function, the user could add new optimization
 criteria by adding a new Python file in the ``optim`` directory. Please inspect the other (D-optimal
 and I-optimal closely). Finally the other modules contain helper functions and code, they are
