@@ -11,6 +11,7 @@ setuptools.setup(
     version="0.0.1",
     author="Mathias Born",
     author_email="mathias.born@kuleuven.be",
+    license_files = ('LICENSE',),
     description="DOE library for optimal split^k-plot designs with the coordinate exchange algorithm",
     long_description=long_description,
     long_description_content_type="text/markdown",
