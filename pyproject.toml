@@ -43,7 +43,7 @@ examples = [
 
 [project.urls]
 homepage = 'https://github.com/mborn1/optimal_splitk'
-documentation = ''
+documentation = 'https://github.com/mborn1/optimal_splitk'
 repository = 'https://github.com/mborn1/optimal_splitk'
 
 [tool.setuptools]
