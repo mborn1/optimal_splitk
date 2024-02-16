@@ -16,7 +16,9 @@ sys.path.append(
     str(pathlib.Path(__file__).parents[2].resolve() / 'src')
 )
 import datetime
-from optimal_splitk import __version__ as lib_version
+
+with open('src/optimal_splitk/__init__.py') as f:
+    lib_version = re.search(r'__version__ = [\'"](.*)[\'"]', f.read()).group(1)
 
 
 # -- Project information -----------------------------------------------------
